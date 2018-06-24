@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.demonk.memorystorage.table.Aggregation;
 import cn.demonk.memorystorage.table.Table;
 
 /**
@@ -161,7 +160,7 @@ public class CacheDatabase<T> {
             Table.Key key = field.getAnnotation(Table.Key.class);
 
             sb.append(memDbName).append(key.name());
-            if (key.aggregation() == Aggregation.SUM) {
+            if (key.aggregation() == Table.Aggregation.SUM) {
                 sb.append('+');
                 sb.append("IFNULL(");
                 sb.append(fileDbName).append(key.name());

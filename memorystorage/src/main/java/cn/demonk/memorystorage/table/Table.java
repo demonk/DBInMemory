@@ -28,7 +28,7 @@ public class Table<T> {
 
     public Table(Class<T> table) {
         mFields = new ArrayList<>();
-        mPrimaryKey=new ArrayList<>();
+        mPrimaryKey = new ArrayList<>();
         parser(table);
     }
 
@@ -267,5 +267,12 @@ public class Table<T> {
         boolean primary() default false;
 
         Aggregation aggregation() default Aggregation.NONE;
+    }
+
+    public enum Aggregation {
+        NONE,
+        SUM,
+        COUNT,
+        AGV
     }
 }
