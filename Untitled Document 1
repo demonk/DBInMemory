@@ -1,0 +1,86 @@
+create table rism(package varchar(20),open_count integer,time_cost integer,cur_time TIMESTAMP default (strftime('%Y%m%d%H','now','localtime')), PRIMARY KEY(package,cur_time));
+
+
+
+insert into rism2(package,open_count,time_cost) values('com.demonk.cn',10,11);
+
+
+
+update rism2 set(package,open_count,time_cost,cur_time)=(select package,sum(open_count),sum(time_cost),cur_time from rism,rism2 group by package,cur_time;
+
+
+
+INSERT OR REPLACE INTO rism2 SELECT rism.package, rism.open_count+rism2.open_count,rism.time_cost+rism2.time_cost,rism.cur_time FROM rism JOIN rism2 ON rism.package=rism2.package and rism.cur_time=rism2.cur_time group by rism.package,rism.cur_time;
+
+
+以内存rism为样本
+INSERT OR REPLACE INTO file_db.rism SELECT rism.package, rism.open_count+IFNULL(file_db.rism.open_count,0),rism.time_cost+IFNULL(file_db.rism.time_cost,0),rism.cur_time FROM rism LEFT JOIN file_db.rism ON rism.package=file_db.rism.package and rism.cur_time=file_db.rism.cur_time group by rism.package,rism.cur_time;
+
+INSERT OR REPLACE INTO 
+file_db.table_name 
+SELECT 
+mem.table_name.open_count+IFNULL(file_db.table_name.open_count,0),
+mem.table_name.package,
+mem.table_name.cycle,
+mem.table_name.time_cost+IFNULL(file_db.table_name.time_cost,0) 
+FROM 
+table_name mem.table_name LEFT JOIN file_db.table_name 
+ON mem.table_name.package=file_db.table_name.package AND mem.table_name.cycle=file_db.table_name.cycle 
+GROUP BY mem.table_name.package,mem.table_name.cycle
+
+INSERT OR REPLACE INTO file_db.table_name SELECT mem.table_name.open_count+IFNULL(file_db.table_name.open_count,0),mem.table_name.package,mem.table_name.cycle,mem.table_name.time_cost+IFNULL(file_db.table_name.time_cost,0) FROM table_name mem.table_name LEFT JOIN file_db.table_name ON mem.table_name.package=file_db.table_name.package AND mem.table_name.cycle=file_db.table_name.cycle GROUP BY mem.table_name.package,mem.table_name.cycle
+
+
+
+
+=======================================================
+
+
+
+INSERT OR REPLACE INTO table_name SET open_count=open_count+1,package=cn.demonk.dbinmemory,cycle=2018062420,time_cost=time_cost+10000
+
+INSERT OR REPLACE INTO table_name select open_count+2,package,cycle,time_cost+2 from table_name where package='cn.demonk.dbinmenory;
+
+
+replace into table_name(open_count,package,cycle,time_cost) values(table_name.open_count+1,'cn.demonk.dbinmemory',2018062420,22+time_cost);
+
+insert or replace into table_name set open_count=2,package='cn.demonk.dbinmemory',cycle=2018062420,time_cost=222
+
+INSERT OR REPLACE INTO table_name select open_count+2,package,cycle,time_cost+2 from table_name;
+
+INSERT OR REPLACE INTO table_name(open_count,package,cycle,time_cost) values(2+IFNULL((select open_count from table_name where package='cn.demonk.dbinmemory4'),0),'cn.demonk.dbinmemory4',2018062420,(select 1000+IFNULL(time_cost,0) from table_name where  package='cn.demonk.dbinmemory4'))
+
+
+select open_count+2,package,cycle,time_cost+2 from table_name where package='cn.demonk.dbinmemory';
+
+
+INSERT OR REPLACE INTO table_name(open_count,package,cycle,time_cost) values(2+IFNULL((select open_count from table_name where package='cn.demonk.dbinmemory5'),0),'cn.demonk.dbinmemory5',2018062420,1000+IFNULL((select time_cost from table_name where  package='cn.demonk.dbinmemory5'),0));
+
+INSERT OR REPLACE INTO table_name(open_count,package,cycle,time_cost) values(2+IFNULL((select open_count from table_name),0),'cn.demonk.dbinmemory5',2018062420,1000+IFNULL((select time_cost from table_name),0));
+
+
+INSERT OR REPLACE INTO table_name(open_count,time_cost,package,cycle) values('cn.demonk.dbinmemory5',2018062420);
+
+
+INSERT OR REPLACE INTO table_name(open_count,time_cost,package,cycle) 
+
+(open_count,package,cycle,time_cost) values(2+IFNULL((select open_count from table_name where package='cn.demonk.dbinmemory5'),0),'cn.demonk.dbinmemory5',2018062420,1000+IFNULL((select time_cost from table_name where  package='cn.demonk.dbinmemory5'),0));
+
+ INSERT OR REPLACE INTO 
+table_name(package,open_count,time_cost,cycle) 
+values(
+cn.demonk.dbinmemory,
+1+IFNULL((SELECT open_count FROM table_name WHERE package='cn.demonk.dbinmemory' AND cycle=2018062422''),0),10000+IFNULL((SELECT time_cost FROM table_name WHERE package='cn.demonk.dbinmemory' AND cycle=2018062422''),0),2018062422)
+
+
+SELECT open_count, package, cycle, time_cost FROM table_name WHERE package='cn.demonk.dbinmemory', cycle=2018062420;
+
+INSERT OR REPLACE INTO file_db.table_name 
+SELECT table_name.open_count+IFNULL(file_db.table_name.open_count,0),
+table_name.package,
+table_name.cycle,
+table_name.time_cost+IFNULL(file_db.table_name.time_cost,0) 
+FROM 
+table_name LEFT JOIN file_db.table_name
+ON table_name.package=file_db.table_name.package AND table_name.cycle=file_db.table_name.cycle 
+GROUP BY table_name.package,table_name.cycle
